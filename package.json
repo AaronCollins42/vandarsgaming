@@ -2,7 +2,7 @@
   "name": "vandarsgaming",
   "version": "1.0.0",
   "description": "Tools for games",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AaronCollins42/vandarsgaming/issues"
   },
-  "homepage": "https://github.com/AaronCollins42/vandarsgaming#readme"
+  "homepage": "https://github.com/AaronCollins42/vandarsgaming#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.7.0"
+  }
 }
