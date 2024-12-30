@@ -76,11 +76,7 @@ function unscramble($text, $totalSteps) {
     for ($j = 0; $j <= $text2_len / 8; $j++)
     {
         $s2 = substr($text2, $j * 8, min(8, $text2_len - $j * 8));
-
-        $text3 .= decode($s2, $TotalSteps + $j);
-        print $text3;
-        print '<br/>';
-        print '<br/>';
+        $text3 .= decode($s2, $totalSteps + $j);
     }
     return $text3;
 }
