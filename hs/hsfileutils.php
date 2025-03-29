@@ -32,31 +32,31 @@ function decode($s,$seed) {
     $text = $s;
     if (($seed + 1) % 3 == 0)
         $text = flip($text);
-    
+
     if ($seed % 3 == 0 && strlen($s) == 8)
         $stuff = ($seed + 5) % 7 + 1;
         $text = unshift($text, $stuff);
-    
+
     if (($seed + 2) % 3 == 0)
         $text = flip($text);
-    
+
     if ($seed % 3 == 0)
         $text = flip($text);
-    
+
     if (($seed + 2) % 3 == 0 && strlen($s) == 8)
         $text = unshift($text, ($seed + 3) % 7 + 1);
-    
+
     if (($seed + 1) % 3 == 0)
         $text = flip($text);
-    
+
     if (($seed + 2) % 3 == 0)
         $text = flip($text);
     if (($seed + 1) % 3 == 0 && strlen($s) == 8)
         $text = unshift($text, $seed % 7 + 1);
-    
+
     if ($seed % 3 == 0)
         $text = flip($text);
-    
+
     return $text;
 }
 

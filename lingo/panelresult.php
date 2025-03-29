@@ -25,8 +25,7 @@ if  ($mid_color && in_array($mid_color,$supportedMidColors)) {
         while (($line = fgets($in)) !== false) {
             try {
                 $line = strtolower(rtrim($line, "\n"));
-                // if (str_starts_with($line, $start_letters)) {
-                    // print ($start_letters);
+                if ($start_letters === '' || (strpos($line, $start_letters) === 0)) {
                     if ((($clue_length == 0) || (strlen($line) == $clue_length)) && (strlen($line) < strlen($mid_clue))){
                         $last_index = 0;
                         $pass = true;
@@ -49,10 +48,9 @@ if  ($mid_color && in_array($mid_color,$supportedMidColors)) {
                         $len = strlen($line[1]);
                     else
                         $len = strlen($meta);
-                    // print ('before');
                     if (similar_text($line[1], $meta) >= ($len - 1))
                         array_push($options,$line[0]);
-                // }
+                }
             }
             catch (Exception $e){
                 print ('Message: ' .$e->getMessage());
@@ -65,7 +63,7 @@ if  ($mid_color && in_array($mid_color,$supportedMidColors)) {
         while (($line = fgets($in)) !== false) {
             try {
                 $line = strtolower(rtrim($line, "\n"));
-                // if (str_starts_with($line, $start_letters)) {
+                if ($start_letters === '' || (strpos($line, $start_letters) === 0)) {
 
                     if ((($clue_length == 0) || (strlen($line) == $clue_length)) && (strlen($line) > strlen($mid_clue))){
                         $last_index = 0;
@@ -103,10 +101,9 @@ if  ($mid_color && in_array($mid_color,$supportedMidColors)) {
                         $len = strlen($line[1]);
                     else
                         $len = strlen($meta);
-                    // print ('before');
                     if (similar_text($line[1], $meta) >= ($len - 1))
                         array_push($options,$line[0]);
-                // }
+                }
             }
             catch (Exception $e){
                 print ('Message: ' .$e->getMessage());
