@@ -21,7 +21,7 @@ include "common.php";
             ?>
         </select><br/>
         <label for="mid_clue">Middle Clue</label>
-        <input type="text" name="mid_clue" id="mid_clue"><br/>
+        <input type="text" name="mid_clue" id="mid_clue">(separate with commas if you have more than one clue that give the same answer)<br/>
         <input type="checkbox" name="norepeat" id="norepeat">
         <label for="norepeat">Disallow Repeated uses of letters</label><br/>
         <label for="clue_length">Answer Length</label>
