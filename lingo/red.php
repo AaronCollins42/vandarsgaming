@@ -1,11 +1,12 @@
 <?php
 include_once "common.php";
 
-function mid_blue_check($clue, $line): bool{
-    $last_index = 0;
+function mid_red_check($clue, $line): bool{
     $pass = true;
-    foreach (str_split($clue) as $char){
-        $last_index = strpos($line, $char,$last_index);
+    $last_index = 0;
+    foreach (str_split($line) as $char){
+
+        $last_index = strpos($clue, $char,$last_index);
 
         if ($last_index === false){
             $pass = false;
@@ -17,7 +18,7 @@ function mid_blue_check($clue, $line): bool{
     return $pass;
 }
 
-function mid_blue($clues, $norepeat, $start_letters,$clue_length): array {
+function mid_red($clues, $norepeat, $start_letters,$clue_length): array {
     $res = array();
     $in = fopen('words.txt', 'r');
     while (($line = fgets($in)) !== false) {
@@ -32,11 +33,12 @@ function mid_blue($clues, $norepeat, $start_letters,$clue_length): array {
                     $pass = true;
                     foreach ($clues as $clue) {
                         // If the string is smaller than any of the clues we fail.
-                        if ($pass && (strlen($line) <= strlen($clue)))
+                        if ($pass && (strlen($line) >= strlen($clue))){
                             $pass = false;
+                        }
 
                         // If it doesn't follow the rules it fails move along
-                        if ($pass && !mid_blue_check($clue, $line)){
+                        if ($pass && !mid_red_check($clue, $line)){
                             $pass = false;
                         }
                     }
